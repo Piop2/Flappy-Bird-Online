@@ -1,0 +1,47 @@
+{ "frames": [
+   {
+    "filename": "Sprite-0013 0.",
+    "frame": { "x": 0, "y": 0, "w": 17, "h": 12 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 17, "h": 12 },
+    "sourceSize": { "w": 17, "h": 12 },
+    "duration": 60
+   },
+   {
+    "filename": "Sprite-0013 1.",
+    "frame": { "x": 17, "y": 0, "w": 17, "h": 12 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 17, "h": 12 },
+    "sourceSize": { "w": 17, "h": 12 },
+    "duration": 40
+   },
+   {
+    "filename": "Sprite-0013 2.",
+    "frame": { "x": 34, "y": 0, "w": 17, "h": 12 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 17, "h": 12 },
+    "sourceSize": { "w": 17, "h": 12 },
+    "duration": 60
+   },
+   {
+    "filename": "Sprite-0013 3.",
+    "frame": { "x": 17, "y": 0, "w": 17, "h": 12 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 17, "h": 12 },
+    "sourceSize": { "w": 17, "h": 12 },
+    "duration": 40
+   }
+ ],
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3-rc4-x64",
+  "image": "bird_fly.png",
+  "format": "RGBA8888",
+  "size": { "w": 51, "h": 12 },
+  "scale": "1"
+ }
+}
