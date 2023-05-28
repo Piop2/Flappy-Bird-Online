@@ -10,7 +10,11 @@ class Renderer:
         self.clock = pygame.time.Clock()
 
     def update(self):
-        window_size = self.game.window.window_size if not self.game.window.is_full else self.game.window.monitor_size
+        window_size = (
+            self.game.window.window_size
+            if not self.game.window.is_full
+            else self.game.window.monitor_size
+        )
         window = self.game.window.window
         display_size = self.game.window.display_size
         display = self.game.window.display
@@ -25,8 +29,14 @@ class Renderer:
         else:
             ratio = window_size[0] / display_size[0]
 
-        window.blit(pygame.transform.scale(display, (int(display_size[0] * ratio), int(display_size[1] * ratio))),
-                    ((window_size[0] / 2) - (display_size[0] * ratio / 2),
-                     (window_size[1] / 2) - (display_size[1] * ratio / 2)))
+        window.blit(
+            pygame.transform.scale(
+                display, (int(display_size[0] * ratio), int(display_size[1] * ratio))
+            ),
+            (
+                (window_size[0] / 2) - (display_size[0] * ratio / 2),
+                (window_size[1] / 2) - (display_size[1] * ratio / 2),
+            ),
+        )
 
         pygame.display.update()

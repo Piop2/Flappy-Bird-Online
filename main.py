@@ -23,5 +23,5 @@ class Game:
             self.update()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     Game().run()

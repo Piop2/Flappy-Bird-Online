@@ -19,7 +19,9 @@ class Window:
 
         self._is_full = False
 
-        pygame.display.set_caption(f"Flappy Bird v{VERSION[0]}.{VERSION[1]}.{VERSION[2]}")
+        pygame.display.set_caption(
+            f"Flappy Bird v{VERSION[0]}.{VERSION[1]}.{VERSION[2]}"
+        )
 
     @property
     def is_full(self) -> bool:

@@ -11,15 +11,22 @@ clock = pygame.time.Clock()
 fuchsia = (255, 0, 128)
 # Create layered window
 hwnd = pygame.display.get_wm_info()["window"]
-win32gui.SetWindowLong(hwnd, win32con.GWL_EXSTYLE,
-                       win32gui.GetWindowLong(hwnd, win32con.GWL_EXSTYLE) | win32con.WS_EX_LAYERED)
+win32gui.SetWindowLong(
+    hwnd,
+    win32con.GWL_EXSTYLE,
+    win32gui.GetWindowLong(hwnd, win32con.GWL_EXSTYLE) | win32con.WS_EX_LAYERED,
+)
 # Set window transparency color
-win32gui.SetLayeredWindowAttributes(hwnd, win32api.RGB(*fuchsia), 0, win32con.LWA_COLORKEY)
+win32gui.SetLayeredWindowAttributes(
+    hwnd, win32api.RGB(*fuchsia), 0, win32con.LWA_COLORKEY
+)
 
 
 def load_image(path: str, scale=4) -> pygame.Surface:
     img = pygame.image.load(path)
-    return pygame.transform.scale(img, (img.get_width() * scale, img.get_height() * scale))
+    return pygame.transform.scale(
+        img, (img.get_width() * scale, img.get_height() * scale)
+    )
 
 
 bird = load_image(path="resource/image/bird.png")
