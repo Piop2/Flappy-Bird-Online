@@ -25,7 +25,8 @@ class Font:
 
 
 class Icon:
-    pass
+    def __init__(self):
+        self.flappy29 = load_image("asset/icon/flappy29.png", 1)
 
 
 class Image:

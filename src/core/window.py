@@ -7,7 +7,9 @@ WINDOW_SIZE_RATIO = (144, 256)
 
 
 class Window:
-    def __init__(self):
+    def __init__(self, game):
+        self.game = game
+
         display_info = pygame.display.Info()
         self.monitor_size = (display_info.current_w, display_info.current_h)
 
@@ -22,6 +24,7 @@ class Window:
         pygame.display.set_caption(
             f"Flappy Bird v{VERSION[0]}.{VERSION[1]}.{VERSION[2]}"
         )
+        pygame.display.set_icon(game.asset.icon.flappy29)
 
     @property
     def is_full(self) -> bool:
