@@ -1,5 +1,6 @@
 import pygame
 
+from src.core.asset import Asset, Save
 from src.core.window import Window
 from src.core.renderer import Renderer
 from src.core.input import Input
@@ -9,6 +10,7 @@ class Game:
     def __init__(self):
         pygame.init()
 
+        self.asset = Asset()
         self.window = Window()
         self.renderer = Renderer(self)
         self.input = Input(self)
