@@ -32,6 +32,7 @@ class Icon:
 class Image:
     def __init__(self):
         self.background = load_image("asset/image/background.png")
+        self.floor = load_image("asset/image/floor.png")
         self.bird = load_image("asset/image/bird.png")
 
 
