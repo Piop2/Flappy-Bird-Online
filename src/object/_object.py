@@ -2,9 +2,10 @@ import pygame
 
 
 class Object:
-    def __init__(self, pos, image):
-        self.pos = pos
-        self.image = image
+    def __init__(self, pos: list[int, int], image: pygame.Surface):
+        self.pos: list[int, int] = pos
+        self.image: pygame.Surface = image
+        return
 
     def update(self, dt: int):
         return
