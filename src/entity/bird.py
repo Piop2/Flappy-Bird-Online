@@ -10,9 +10,11 @@ class Bird(PhysicsEntity):
             animation=game.asset.image.bird_fly_ani
         )
 
-    def update(self, dt: int):
-        gravity = self.game.world.gravity
+    def jump(self):
+        self.y_acc = - self.game.world.jump
+        return
 
-        self.y_acc += gravity
+    def update(self, dt: int):
+        self.y_acc += self.game.world.gravity
         super().update(dt)
         return

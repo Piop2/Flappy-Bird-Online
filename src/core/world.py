@@ -12,6 +12,7 @@ class World:
         # setting
         self.speed = 0.2
         self.gravity = 0.05
+        self.jump = 1
 
         self.background = Background(game)
         self.floor = Floor(game)
@@ -23,9 +24,14 @@ class World:
         self.bird = Bird(game)
 
     def update(self):
+        game_input = self.game.input
+
+        if game_input.jump:
+            game_input.jump = False
+            self.bird.jump()
+
         dt = self.game.renderer.dt
         self.floor.update(dt)
-
         self.bird.update(dt)
         return
 

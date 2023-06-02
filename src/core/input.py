@@ -8,6 +8,8 @@ class Input:
     def __init__(self, game):
         self.game = game
 
+        self.jump = False
+
     def update(self):
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -20,3 +22,6 @@ class Input:
                         self.game.window.set_window()
                     else:
                         self.game.window.set_fullscreen()
+
+                if event.key == K_SPACE:
+                    self.jump = True
