@@ -12,6 +12,7 @@ class Animation:
 
         self.frame = 0
         self.timer = 0
+        self.speed = 1
         self.playing = True
         return
 
@@ -46,7 +47,7 @@ class Animation:
         if not self.playing:
             return
 
-        self.timer += dt
+        self.timer += dt * self.speed
         if self.timer >= self.durations[self.frame]:
             self.timer = 0
 
