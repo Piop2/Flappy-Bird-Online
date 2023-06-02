@@ -17,9 +17,13 @@ class World:
         self.title_game_over = game.asset.image.title_game_over
         self.title_get_ready = game.asset.image.title_get_ready
 
+        self.bird_ani = game.asset.image.bird_fly_ani
+
     def update(self):
         dt = self.game.renderer.dt
         self.floor.update(dt)
+
+        self.bird_ani.update(dt)
         return
 
     def render(self, display: Surface):
@@ -30,4 +34,6 @@ class World:
         display.blit(self.title_flappy_bird, (0, 0))
         display.blit(self.title_game_over, (0, 100))
         display.blit(self.title_get_ready, (0, 200))
+
+        display.blit(self.bird_ani.image, (0, 400))
         return

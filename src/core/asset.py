@@ -1,6 +1,5 @@
-import pygame
-
-from src.util.image import load_image, load_images, clips
+from src.util.animation import Animation
+from src.util.image import load_image, load_images
 
 IMAGE_SCALE = 3
 
@@ -35,6 +34,9 @@ class Image:
         self.title_flappy_bird = titles[0]
         self.title_game_over = titles[1]
         self.title_get_ready = titles[2]
+
+        # animation
+        self.bird_fly_ani = Animation.load("asset/animation/bird.json", IMAGE_SCALE)
 
 
 class Sound:
