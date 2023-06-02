@@ -7,7 +7,6 @@ IMAGE_SCALE = 3
 
 class Asset:
     def __init__(self):
-        self.animation = Animation()
         self.font = Font()
         self.icon = Icon()
         self.image = Image()
@@ -15,10 +14,6 @@ class Asset:
 
 
 class Save:
-    pass
-
-
-class Animation:
     pass
 
 
