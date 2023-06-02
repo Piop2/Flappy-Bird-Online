@@ -27,7 +27,7 @@ class Animation:
             durations.append(frame["duration"])
 
         sprites = pygame.image.load(ani_data["meta"]["image"])
-        frame_images = clips(sprites, frame_data)
+        frame_images = clips(sprites, frame_data, scale)
         return cls(images=frame_images, durations=durations)
 
     def pause(self):
