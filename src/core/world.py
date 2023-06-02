@@ -22,6 +22,7 @@ class World:
         self.title_get_ready = game.asset.image.title_get_ready
 
         self.bird = Bird(game)
+        self.bird.pos = [115, 370]
 
     def update(self):
         game_input = self.game.input

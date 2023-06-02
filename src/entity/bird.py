@@ -15,6 +15,6 @@ class Bird(PhysicsEntity):
         return
 
     def update(self, dt: int):
-        self.y_acc += self.game.world.gravity
+        # self.y_acc += self.game.world.gravity
         super().update(dt)
         return
