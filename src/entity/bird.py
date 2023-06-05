@@ -15,6 +15,11 @@ class Bird(PhysicsEntity):
         return
 
     def update(self, dt: int):
-        # self.y_acc += self.game.world.gravity
+        self.y_acc += self.game.world.gravity
+
+        if self.pos[1] <= -10:
+            self.pos[1] = -10
+            self.y_acc = 0
+
         super().update(dt)
         return
