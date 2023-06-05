@@ -21,11 +21,11 @@ def clips(surf: pygame.Surface, rects: list[tuple[int, int, int, int]]) -> list[
     return [clip(surf, rect) for rect in rects]
 
 
-def rotate(image, pos, originPos, angle):
+def rotate(image, pos, origin_pos, angle):
     """
     :param image: 이미지
     :param pos: 위치
-    :param originPos: 회전 위치
+    :param origin_pos: 회전 위치
     :param angle: 각도
     :return : 회전된 이미지
     """
@@ -38,12 +38,12 @@ def rotate(image, pos, originPos, angle):
     max_box = (max(box_rotate, key=lambda p: p[0])[0], max(box_rotate, key=lambda p: p[1])[1])
 
     # calculate the translation of the pivot
-    pivot = pygame.math.Vector2(originPos[0], -originPos[1])
+    pivot = pygame.math.Vector2(origin_pos[0], -origin_pos[1])
     pivot_rotate = pivot.rotate(angle)
     pivot_move = pivot_rotate - pivot
 
     # calculate the upper left origin of the rotated image
-    origin = (pos[0] - originPos[0] + min_box[0] - pivot_move[0], pos[1] - originPos[1] - max_box[1] + pivot_move[1])
+    origin = (pos[0] - origin_pos[0] + min_box[0] - pivot_move[0], pos[1] - origin_pos[1] - max_box[1] + pivot_move[1])
 
     # get a rotated image
     rotated_image = pygame.transform.rotate(image, angle)
