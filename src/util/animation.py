@@ -17,7 +17,7 @@ class Animation:
         return
 
     @classmethod
-    def load(cls, path: str, scale: int = 1):
+    def load(cls, path: str):
         with open(path, "r") as f:
             ani_data = json.load(f)
 
@@ -28,7 +28,7 @@ class Animation:
             durations.append(frame["duration"])
 
         sprites = pygame.image.load(ani_data["meta"]["image"])
-        frame_images = clips(sprites, frame_data, scale)
+        frame_images = clips(sprites, frame_data)
         return cls(images=frame_images, durations=durations)
 
     def pause(self):

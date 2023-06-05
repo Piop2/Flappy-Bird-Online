@@ -2,11 +2,11 @@ import pygame
 
 
 def load_image(path: str) -> pygame.Surface:
-    return pygame.transform.scale_by(pygame.image.load(path))
+    return pygame.image.load(path)
 
 
 def load_images(path: str, rects: list[tuple[int, int, int, int]]) -> list[pygame.Surface]:
-    return [pygame.transform.scale_by(surf) for surf in clips(pygame.image.load(path), rects)]
+    return [surf for surf in clips(pygame.image.load(path), rects)]
 
 
 def clip(surf: pygame.Surface, rect: tuple[int, int, int, int]) -> pygame.Surface:
