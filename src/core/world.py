@@ -10,9 +10,12 @@ class World:
         self.game = game
 
         # setting
-        self.speed = 0.2
-        self.gravity = 0.05
-        self.jump = 1
+        self.GRAVITY = 0.05
+        self.MAX_HEIGHT = -20
+        self.SPEED = 0.2
+        self.JUMP = 1
+
+        self._status = ""
 
         self.background = Background(game)
         self.floor = Floor(game)
@@ -22,12 +25,30 @@ class World:
         self.title_get_ready = game.asset.image.title_get_ready
 
         self.bird = Bird(game)
-        self.bird.pos = [115, 370]
+
+        self.status = "ready"
+
+    @property
+    def status(self) -> str:
+        return self._status
+
+    @status.setter
+    def status(self, new: str):
+        self._status = new
+        match new:
+            case "intro":
+                pass
+            case "ready":
+                self.bird.ready()
+            case "play":
+                self.bird.play()
+        return
 
     def update(self):
         game_input = self.game.input
 
         if game_input.jump:
+            self.status = "play"
             game_input.jump = False
             self.bird.jump()
 
@@ -45,5 +66,6 @@ class World:
         # display.blit(self.title_game_over, (0, 100))
         # display.blit(self.title_get_ready, (0, 200))
 
-        self.bird.render(display)
+        if not self.status == "intro":
+            self.bird.render(display)
         return
