@@ -1,6 +1,6 @@
 import pygame
 
-from src.entity._entity import Entity
+from src.object._entity import Entity
 
 
 class Floor(Entity):

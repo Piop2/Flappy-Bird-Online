@@ -1,4 +1,4 @@
-from src.entity._entity import Entity, PhysicsEntity
+from src.object._entity import Entity, PhysicsEntity
 
 
 class Bird(PhysicsEntity):
