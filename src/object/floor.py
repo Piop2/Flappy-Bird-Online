@@ -20,6 +20,8 @@ class Floor(Entity):
         self.pos[0] -= speed * dt
         if self.pos[0] <= - self.image.get_width():
             self.pos[0] = 0
+
+        super().update(dt)
         return
 
     def render(self, display: pygame.Surface):
