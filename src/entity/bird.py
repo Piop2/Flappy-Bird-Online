@@ -1,4 +1,4 @@
-from src.entity._entity import PhysicsEntity
+from src.entity._entity import Entity, PhysicsEntity
 
 
 class Bird(PhysicsEntity):
@@ -9,7 +9,7 @@ class Bird(PhysicsEntity):
 
         super().__init__(
             pos=[0, 0],
-            animation=game.asset.image.bird_fly_ani
+            animation=game.asset.image.bird_fly_ani.copy()
         )
 
     def ready(self):
@@ -40,5 +40,26 @@ class Bird(PhysicsEntity):
         if not self.stop:
             self.y_acc += self.game.world.GRAVITY
 
+        super().update(dt)
+        return
+
+
+class IntroBird(Entity):
+    def __init__(self, game):
+        self.game = game
+
+        animation = game.asset.image.bird_fly_ani.copy()
+        animation.speed = 0.1
+
+        super().__init__(
+            pos=[0, 0],
+            animation=animation
+        )
+
+    def setup(self):
+        self.animation.reset()
+        return
+
+    def update(self, dt: int):
         super().update(dt)
         return
