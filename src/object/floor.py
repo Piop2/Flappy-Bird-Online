@@ -1,21 +1,21 @@
 import pygame
 
-from src.object._object import Object
+from src.entity._entity import Entity
 
 
-class Floor(Object):
+class Floor(Entity):
     def __init__(self, game):
         self.game = game
 
-        image = game.asset.image.floor
+        image = game.asset.image.floor.copy()
 
         super().__init__(
-            image=image,
-            pos=[0, game.window.display_size[1] - image.get_height()]
+            pos=[0, game.window.display_size[1] - image.get_height()],
+            image=image
         )
 
     def update(self, dt: int):
-        speed = self.game.world.speed
+        speed = self.game.world.SPEED
 
         self.pos[0] -= speed * dt
         if self.pos[0] <= - self.image.get_width():
