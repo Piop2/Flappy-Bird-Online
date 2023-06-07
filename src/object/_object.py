@@ -10,15 +10,16 @@ class Object:
         self.animation: Animation = animation
         return
 
+    def get_image(self) -> pygame.Surface:
+        if self.animation is not None:
+            return self.animation.image.copy()
+        return self.image.copy()
+
     def update(self, dt: int):
         if self.animation is not None:
             self.animation.update(dt)
         return
 
     def render(self, display: pygame.Surface):
-        image = self.image
-        if self.animation is not None:
-            image = self.animation.image
-
-        display.blit(image, self.pos)
+        display.blit(self.get_image(), self.pos)
         return
