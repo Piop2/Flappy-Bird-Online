@@ -1,6 +1,7 @@
 import pygame
 
 from src.object._entity import Entity
+from src.object._hitbox import HitBox
 
 
 class Floor(Entity):
@@ -9,16 +10,17 @@ class Floor(Entity):
 
         image = game.asset.image.floor.copy()
 
-        super().__init__(
-            pos=[0, game.window.display_size[1] - image.get_height()],
-            image=image
-        )
+        pos = [0, game.window.display_size[1] - image.get_height()]
+        hitbox = HitBox(pos, (462 * 2, 168))
+
+        super().__init__(pos=pos, image=image, hitbox=hitbox)
+        return
 
     def update(self, dt: int):
         speed = self.game.world.SPEED
 
         self.pos[0] -= speed * dt
-        if self.pos[0] <= - self.image.get_width():
+        if self.pos[0] <= -self.image.get_width():
             self.pos[0] = 0
 
         super().update(dt)
@@ -26,11 +28,5 @@ class Floor(Entity):
 
     def render(self, display: pygame.Surface):
         display.blit(self.image, self.pos)
-        display.blit(
-            self.image,
-            (
-                self.pos[0] + self.image.get_width(),
-                self.pos[1]
-            )
-        )
+        display.blit(self.image, (self.pos[0] + self.image.get_width(), self.pos[1]))
         return

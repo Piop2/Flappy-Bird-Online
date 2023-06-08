@@ -4,7 +4,12 @@ from src.util.animation import Animation
 
 
 class Object:
-    def __init__(self, pos: list[int, int], image: pygame.Surface = None, animation: Animation = None):
+    def __init__(
+        self,
+        pos: list[int, int],
+        image: pygame.Surface = None,
+        animation: Animation = None,
+    ):
         self.pos: list[int, int] = pos
         self.image: pygame.Surface = image
         self.animation: Animation = animation
@@ -21,5 +26,12 @@ class Object:
         return
 
     def render(self, display: pygame.Surface):
-        display.blit(self.get_image(), self.pos)
+        image = self.get_image()
+        display.blit(
+            image,
+            (
+                self.pos[0] - (image.get_width() / 2),
+                self.pos[1] - (image.get_height() / 2),
+            ),
+        )
         return

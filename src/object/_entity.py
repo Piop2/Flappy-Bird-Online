@@ -7,8 +7,14 @@ from src.util.image import rotate
 
 
 class Entity(Object):
-    def __init__(self, pos: list[int, int], image: pygame.Surface = None, animation: Animation = None,
-                 hitbox: HitBox = None, rotate_pos: tuple[int, int] = (0, 0)):
+    def __init__(
+        self,
+        pos: list[int, int],
+        image: pygame.Surface = None,
+        animation: Animation = None,
+        hitbox: HitBox = None,
+        rotate_pos: tuple[int, int] = (0, 0),
+    ):
         super().__init__(pos, image, animation)
         self.hitbox = hitbox
         self.angle = 0
@@ -16,17 +22,31 @@ class Entity(Object):
         return
 
     def is_collide(self, hitbox_list: list[HitBox]):
-        return self.hitbox.is_collide(self.pos, hitbox_list)
+        return self.hitbox.is_collide(hitbox_list)
 
     def render(self, display: pygame.Surface):
-        display.blit(*rotate(self.get_image(), self.pos, self.rotate_pos, self.angle))
+        image = self.get_image()
+        display.blit(
+            *rotate(
+                image,
+                self.pos,
+                self.rotate_pos,
+                self.angle,
+            )
+        )
         return
 
 
 class PhysicsEntity(Entity):
-    def __init__(self, pos: list[int, int], image: pygame.Surface = None, animation: Animation = None,
-                 hitbox: HitBox = None):
-        super().__init__(pos, image, animation, hitbox)
+    def __init__(
+        self,
+        pos: list[int, int],
+        image: pygame.Surface = None,
+        animation: Animation = None,
+        hitbox: HitBox = None,
+        rotate_pos: tuple[int, int] = None,
+    ):
+        super().__init__(pos, image, animation, hitbox, rotate_pos)
 
         self.y_acc = 0
         return
