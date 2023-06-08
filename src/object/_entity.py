@@ -15,8 +15,8 @@ class Entity(Object):
         self.rotate_pos = rotate_pos
         return
 
-    def is_collide(self, pos: list[int, int], hitbox_list: list[HitBox]):
-        return self.hitbox.is_collide(pos, hitbox_list)
+    def is_collide(self, hitbox_list: list[HitBox]):
+        return self.hitbox.is_collide(self.pos, hitbox_list)
 
     def render(self, display: pygame.Surface):
         display.blit(*rotate(self.get_image(), self.pos, self.rotate_pos, self.angle))

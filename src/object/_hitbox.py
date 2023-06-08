@@ -2,8 +2,8 @@ import pygame
 
 
 class HitBox:
-    def __init__(self, size: tuple[int, int]):
-        self.size: tuple[int, int] = size
+    def __init__(self, w: int, h: int):
+        self.size: tuple[int, int] = (w, h)
 
     def get_rect(self, pos: list[int, int]) -> pygame.Rect:
         return pygame.Rect(*pos, *self.size)
