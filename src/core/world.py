@@ -2,7 +2,7 @@ from pygame import Surface
 
 from src.object.background import Background
 from src.object.floor import Floor
-from src.entity.bird import Bird
+from src.object.bird import Bird, IntroBird
 
 
 class World:
@@ -14,8 +14,11 @@ class World:
         self.MAX_HEIGHT = -20
         self.SPEED = 0.2
         self.JUMP = 1
+        self.JUMP_ANGLE = 45
+        self.ROTATE_SPEED = 0.1
 
         self._status = ""
+        self.in_game = False
 
         self.background = Background(game)
         self.floor = Floor(game)
@@ -25,6 +28,7 @@ class World:
         self.title_get_ready = game.asset.image.title_get_ready
 
         self.bird = Bird(game)
+        self.intro_bird = IntroBird(game)
 
         self.status = "ready"
 
@@ -36,24 +40,44 @@ class World:
     def status(self, new: str):
         self._status = new
         match new:
-            case "intro":
-                pass
+            case "menu":
+                self.in_game = False
+                self.intro_bird.setup()
             case "ready":
+                self.in_game = True
                 self.bird.ready()
             case "play":
+                self.in_game = True
                 self.bird.play()
+            case "gameOver":
+                self.in_game = True
+                self.bird.animation.pause()
+                pass
         return
 
     def update(self):
+        dt = self.game.renderer.dt
         game_input = self.game.input
+
+        if not self.status == "gameOver":
+            self.floor.update(dt)
+
+        # MENU #
+
+        if not self.in_game:
+            self.intro_bird.update(dt)
+            return
+
+        # IN GAME #
+
+        if self.bird.is_collide([self.floor.hitbox]):
+            self.status = "gameOVer"
 
         if game_input.jump:
             self.status = "play"
             game_input.jump = False
             self.bird.jump()
 
-        dt = self.game.renderer.dt
-        self.floor.update(dt)
         self.bird.update(dt)
         return
 
@@ -66,6 +90,8 @@ class World:
         # display.blit(self.title_game_over, (0, 100))
         # display.blit(self.title_get_ready, (0, 200))
 
-        if not self.status == "intro":
+        if self.status == "menu":
+            self.intro_bird.render(display)
+        else:  # in game
             self.bird.render(display)
         return

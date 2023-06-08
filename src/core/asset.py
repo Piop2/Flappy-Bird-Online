@@ -28,7 +28,9 @@ class Image:
         self.background = load_image("asset/image/background.png")
         self.floor = load_image("asset/image/floor.png")
 
-        titles = load_images("asset/image/titles.png", [(0, 0, 96, 22), (0, 26, 94, 19), (0, 48, 87, 22)])
+        titles = load_images(
+            "asset/image/titles.png", [(0, 0, 96, 22), (0, 26, 94, 19), (0, 48, 87, 22)]
+        )
         self.title_flappy_bird = titles[0]
         self.title_game_over = titles[1]
         self.title_get_ready = titles[2]
@@ -39,5 +41,3 @@ class Image:
 
 class Sound:
     pass
-
-

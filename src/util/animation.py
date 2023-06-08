@@ -6,7 +6,9 @@ from src.util.image import clips
 
 
 class Animation:
-    def __init__(self, images: list[pygame.Surface], durations: list[int], speed: int = 1):
+    def __init__(
+        self, images: list[pygame.Surface], durations: list[int], speed: int = 1
+    ):
         self.images = images
         self.durations = durations
 
@@ -32,11 +34,7 @@ class Animation:
         return cls(images=frame_images, durations=durations)
 
     def copy(self):
-        return Animation(
-            images=self.images,
-            durations=self.durations,
-            speed=self.speed
-        )
+        return Animation(images=self.images, durations=self.durations, speed=self.speed)
 
     def reset(self):
         self.frame = 0
