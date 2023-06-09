@@ -1,5 +1,3 @@
-import pygame.draw
-
 from src.object._entity import Entity, PhysicsEntity
 from src.object._hitbox import HitBox
 
@@ -50,12 +48,7 @@ class Bird(PhysicsEntity):
         return
 
     def update(self, dt: int):
-        if self.pos[1] <= -20:
-            self.pos[1] = -20
-            self.y_acc = 0
-        if self.pos[1] >= (floor_y_pos := self.game.window.display_size[1] - 168):
-            self.pos[1] = floor_y_pos
-            self.y_acc = 0
+        self.hitbox.pos = self.pos
 
         if not self.stop:
             self.rotate_acc += self.game.world.ROTATE_SPEED
@@ -63,6 +56,13 @@ class Bird(PhysicsEntity):
             if self.angle <= -90:
                 self.angle = -90
             self.y_acc += self.game.world.GRAVITY
+
+        if self.pos[1] < -20:
+            self.pos[1] = -20
+            self.y_acc = 0
+        if self.pos[1] > (floor_y_pos := self.game.window.display_size[1] - 168):
+            self.pos[1] = floor_y_pos
+            self.y_acc = 0
 
         super().update(dt)
         return

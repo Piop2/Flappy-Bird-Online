@@ -70,15 +70,17 @@ class World:
 
         # IN GAME #
 
-        if self.bird.is_collide([self.floor.hitbox]):
-            self.status = "gameOVer"
-
-        if game_input.jump:
-            self.status = "play"
-            game_input.jump = False
-            self.bird.jump()
-
         self.bird.update(dt)
+
+        if self.status == "ready" or self.status == "play":
+            if self.bird.is_collide([self.floor.hitbox]):
+                self.status = "gameOver"
+
+            if game_input.jump:
+                self.status = "play"
+                game_input.jump = False
+                self.bird.jump()
+
         return
 
     def render(self, display: Surface):

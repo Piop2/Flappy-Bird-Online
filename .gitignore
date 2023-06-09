@@ -1,1 +1,10 @@
+# IntelliJ
 /.idea/
+
+# pyinstaller
+/updater.spec
+/build/
+/dist/
+
+/download/
+/save/

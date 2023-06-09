@@ -16,7 +16,7 @@ class HitBox:
         return
 
     def get_rect(self) -> pygame.Rect:
-        return pygame.Rect(self.pos[0], *self._size)
+        return pygame.Rect(self._pos[0] - (self._size[0] / 2), self._pos[1] - (self._size[1] / 2), *self._size)
 
     def is_collide(self, hitbox_list) -> bool:
         rect = self.get_rect()

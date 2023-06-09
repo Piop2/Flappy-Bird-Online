@@ -1,0 +1,47 @@
+{ "frames": [
+   {
+    "filename": "Sprite-0013 0.",
+    "frame": { "x": 0, "y": 0, "w": 102, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 102, "h": 72 },
+    "sourceSize": { "w": 102, "h": 72 },
+    "duration": 240
+   },
+   {
+    "filename": "Sprite-0013 1.",
+    "frame": { "x": 102, "y": 0, "w": 102, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 102, "h": 72 },
+    "sourceSize": { "w": 102, "h": 72 },
+    "duration": 160
+   },
+   {
+    "filename": "Sprite-0013 2.",
+    "frame": { "x": 204, "y": 0, "w": 102, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 102, "h": 72 },
+    "sourceSize": { "w": 102, "h": 72 },
+    "duration": 240
+   },
+   {
+    "filename": "Sprite-0013 3.",
+    "frame": { "x": 102, "y": 0, "w": 102, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 102, "h": 72 },
+    "sourceSize": { "w": 102, "h": 72 },
+    "duration": 160
+   }
+ ],
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3-rc4-x64",
+  "image": "asset/image/animation/update_bird.png",
+  "format": "RGBA8888",
+  "size": { "w": 102, "h": 72 },
+  "scale": "1"
+ }
+}
