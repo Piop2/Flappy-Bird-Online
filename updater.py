@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 import urllib.request
 
 from src.util.animation import Animation
-from src.util.font import FixedBitMapFont
+from src.util.font import BitMapFont
 from src.version import VERSION
 
 GITHUB_RELEASE_TAG_URL = "https://github.com/Piop2/Flappy-Bird-Online/tags"
@@ -106,7 +106,7 @@ class App:
         self.bird = Animation.load("asset/animation/update_bird.json")
         self.background = pygame.image.load("asset/image/update_background.png")
 
-        self.font = FixedBitMapFont.load("asset/font/flappy_font.json", 3)
+        self.font = BitMapFont.load("asset/font/flappy_font.json", 3)
 
         self.downloader = Downloader()
 

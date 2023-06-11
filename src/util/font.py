@@ -19,7 +19,7 @@ class Text:
         return self._width
 
 
-class FixedBitMapFont:
+class BitMapFont:
     def __init__(self, fonts: dict[str:Text], font_height: int, letter_space: int, line_space: int, space: int, scale: int):
         self.fonts = fonts
         self.font_height = font_height
