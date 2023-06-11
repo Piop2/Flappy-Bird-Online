@@ -9,6 +9,7 @@ class Input:
         self.game = game
 
         self.jump = False
+        return
 
     def update(self):
         for event in pygame.event.get():
@@ -25,3 +26,4 @@ class Input:
 
                 if event.key == K_SPACE:
                     self.jump = True
+        return

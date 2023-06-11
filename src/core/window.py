@@ -25,6 +25,7 @@ class Window:
             f"Flappy Bird {VERSION}"
         )
         pygame.display.set_icon(game.asset.icon.flappy29)
+        return
 
     @property
     def is_full(self) -> bool:
@@ -58,3 +59,4 @@ class Window:
 
         self.window_size = tuple(final_size)
         self.window = pygame.display.set_mode(self.window_size, pygame.RESIZABLE)
+        return

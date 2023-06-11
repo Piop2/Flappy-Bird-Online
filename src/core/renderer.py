@@ -8,6 +8,7 @@ class Renderer:
         self.fps = 60
         self.dt = 0
         self.clock = pygame.time.Clock()
+        return
 
     def update(self):
         window_size = (
@@ -41,3 +42,4 @@ class Renderer:
         )
 
         pygame.display.update()
+        return

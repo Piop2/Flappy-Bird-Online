@@ -21,6 +21,7 @@ class Font:
 class Icon:
     def __init__(self):
         self.flappy29 = load_image("asset/icon/flappy29.png")
+        return
 
 
 class Image:
@@ -37,6 +38,7 @@ class Image:
 
         # animation
         self.bird_fly_ani = Animation.load("asset/animation/bird.json")
+        return
 
 
 class Sound:
