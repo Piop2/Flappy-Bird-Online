@@ -5,10 +5,10 @@ from src.util.animation import Animation
 
 class Object:
     def __init__(
-            self,
-            pos=None,
-            image: pygame.Surface = None,
-            animation: Animation = None,
+        self,
+        pos=None,
+        image: pygame.Surface = None,
+        animation: Animation = None,
     ):
         if pos is None:
             pos = [0, 0]

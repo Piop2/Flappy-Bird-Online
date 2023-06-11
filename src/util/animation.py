@@ -7,15 +7,20 @@ from src.util.image import clips
 
 class Animation:
     def __init__(
-        self, images: list[pygame.Surface], durations: list[int], speed: int = 1
+        self,
+        images: list[pygame.Surface],
+        durations: list[int],
+        size: tuple[int, int],
+        speed: int = 1,
     ):
-        self.images = images
-        self.durations = durations
+        self._images = images
+        self._durations = durations
+        self._size = size
 
-        self.frame = 0
-        self.timer = 0
-        self.speed = speed
-        self.playing = True
+        self._frame = 0
+        self._timer = 0
+        self._speed = speed
+        self._playing = True
         return
 
     @classmethod
@@ -31,36 +36,55 @@ class Animation:
 
         sprites = pygame.image.load(ani_data["meta"]["image"])
         frame_images = clips(sprites, frame_data)
-        return cls(images=frame_images, durations=durations)
+        size = tuple(ani_data["meta"]["size"].values())
+        return cls(images=frame_images, durations=durations, size=size)
+
+    @property
+    def size(self) -> tuple[int, int]:
+        return self._size
+
+    @property
+    def speed(self) -> int | float:
+        return self._speed
+
+    @speed.setter
+    def speed(self, new: int | float):
+        self._speed = new
+        return
 
     def copy(self):
-        return Animation(images=self.images, durations=self.durations, speed=self.speed)
+        return Animation(
+            images=self._images,
+            durations=self._durations,
+            size=self._size,
+            speed=self._speed,
+        )
 
     def reset(self):
-        self.frame = 0
+        self._frame = 0
         return
 
     def pause(self):
-        self.playing = False
+        self._playing = False
         return
 
     def play(self):
-        self.playing = True
+        self._playing = True
         return
 
     @property
     def image(self) -> pygame.Surface:
-        return self.images[self.frame]
+        return self._images[self._frame]
 
     def update(self, dt: int):
-        if not self.playing:
+        if not self._playing:
             return
 
-        self.timer += dt * self.speed
-        if self.timer >= self.durations[self.frame]:
-            self.timer = 0
+        self._timer += dt * self._speed
+        if self._timer >= self._durations[self._frame]:
+            self._timer = 0
 
-            self.frame += 1
-            if self.frame == len(self.images):
-                self.frame = 0
+            self._frame += 1
+            if self._frame == len(self._images):
+                self._frame = 0
         return

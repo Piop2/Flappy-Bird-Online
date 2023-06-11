@@ -1,4 +1,4 @@
-from src.object._entity import Entity, PhysicsEntity
+from src.object._entity import PhysicsEntity
 from src.object._hitbox import HitBox
 
 
@@ -24,7 +24,7 @@ class Bird(PhysicsEntity):
         """game ready"""
         self.stop = True
         self.pos = [115, 370]
-        self.animation.speed = 0.2
+        self.animation._speed = 0.2
         self.angle = 0
         self.rotate_acc = 0
         return
@@ -32,7 +32,7 @@ class Bird(PhysicsEntity):
     def play(self):
         """game play"""
         self.stop = False
-        self.animation.speed = 1
+        self.animation._speed = 1
         return
 
     def jump(self):
@@ -60,24 +60,5 @@ class Bird(PhysicsEntity):
             self.pos[1] = floor_y_pos
             self.y_acc = 0
 
-        super().update(dt)
-        return
-
-
-class IntroBird(Entity):
-    def __init__(self, game):
-        self.game = game
-
-        animation = game.asset.image.bird_fly_ani.copy()
-        animation.speed = 0.1
-
-        super().__init__(pos=[0, 0], animation=animation)
-        return
-
-    def setup(self):
-        self.animation.reset()
-        return
-
-    def update(self, dt: int):
         super().update(dt)
         return

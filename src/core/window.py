@@ -21,9 +21,7 @@ class Window:
 
         self._is_full = False
 
-        pygame.display.set_caption(
-            f"Flappy Bird {VERSION}"
-        )
+        pygame.display.set_caption(f"Flappy Bird {VERSION}")
         pygame.display.set_icon(game.asset.icon.flappy29)
         return
 

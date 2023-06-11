@@ -9,9 +9,9 @@ class Floor(Entity):
         self.game = game
 
         image = game.asset.image.floor.copy()
-        hitbox = HitBox(pos, (462 * 2, 168))
+        hitbox = HitBox((462 * 2, 168))
 
-        super().__init__(pos=pos, image=image, hitbox=hitbox)
+        super().__init__(image=image, hitbox=hitbox)
         return
 
     def setup(self):

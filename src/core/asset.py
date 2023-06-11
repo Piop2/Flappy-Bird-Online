@@ -30,11 +30,20 @@ class Image:
         self.floor = load_image("asset/image/floor.png")
 
         titles = load_images(
-            "asset/image/titles.png", [(0, 0, 96, 22), (0, 26, 94, 19), (0, 48, 87, 22)]
+            "asset/image/titles.png",
+            [(0, 0, 288, 66), (0, 78, 282, 57), (0, 144, 261, 66)],
         )
         self.title_flappy_bird = titles[0]
         self.title_game_over = titles[1]
         self.title_get_ready = titles[2]
+
+        big_buttons = load_images(
+            "asset/image/big_buttons.png",
+            [(0, 0, 120, 42), (0, 90, 120, 42), (123, 90, 120, 42)]
+        )
+        self.button_start = big_buttons[0]
+        self.button_score = big_buttons[1]
+        self.button_multi = big_buttons[2]
 
         # animation
         self.bird_fly_ani = Animation.load("asset/animation/bird.json")

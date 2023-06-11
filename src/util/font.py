@@ -20,7 +20,15 @@ class Text:
 
 
 class BitMapFont:
-    def __init__(self, fonts: dict[str:Text], font_height: int, letter_space: int, line_space: int, space: int, scale: int):
+    def __init__(
+        self,
+        fonts: dict[str:Text],
+        font_height: int,
+        letter_space: int,
+        line_space: int,
+        space: int,
+        scale: int,
+    ):
         self.fonts = fonts
         self.font_height = font_height
         self.letter_space = letter_space
@@ -46,11 +54,20 @@ class BitMapFont:
         for letter in orders:
             for end_x in range(start_x, sprite.get_width()):
                 if sprite.get_at((end_x, 0)) == key:
-                    fonts[letter] = Text(clip(sprite, (start_x, 0, end_x - start_x, font_height)))
+                    fonts[letter] = Text(
+                        clip(sprite, (start_x, 0, end_x - start_x, font_height))
+                    )
                     start_x = end_x + 1
                     break
 
-        return cls(fonts=fonts, font_height=font_height, letter_space=letter_space, line_space=line_space, space=space, scale=scale)
+        return cls(
+            fonts=fonts,
+            font_height=font_height,
+            letter_space=letter_space,
+            line_space=line_space,
+            space=space,
+            scale=scale,
+        )
 
     def _get_text(self, text: str) -> Text:
         return self.fonts[text]
