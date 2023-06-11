@@ -1,4 +1,5 @@
 import os
+import subprocess
 import zipfile
 import shutil
 from _thread import start_new_thread
@@ -136,7 +137,7 @@ class App:
                     running = False
 
                     if self.downloader.done:
-                        pass
+                        subprocess.run("main.py")
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
