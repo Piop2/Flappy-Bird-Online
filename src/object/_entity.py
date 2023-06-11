@@ -21,6 +21,11 @@ class Entity(Object):
         self.rotate_pos = rotate_pos
         return
 
+    def update(self, dt: int):
+        self.hitbox.pos = self.pos
+        super().update(dt)
+        return
+
     def is_collide(self, hitbox_list: list[HitBox]):
         return self.hitbox.is_collide(hitbox_list)
 

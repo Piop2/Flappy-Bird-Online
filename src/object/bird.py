@@ -48,8 +48,6 @@ class Bird(PhysicsEntity):
         return
 
     def update(self, dt: int):
-        self.hitbox.pos = self.pos
-
         if not self.stop:
             self.rotate_acc += self.game.world.ROTATE_SPEED
             self.angle -= self.rotate_acc
