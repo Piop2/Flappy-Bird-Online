@@ -2,8 +2,8 @@ import pygame
 
 
 class HitBox:
-    def __init__(self, pos: list[int], size: tuple[int, int]):
-        self._pos: list[int] = pos
+    def __init__(self, size: tuple[int, int]):
+        self._pos: list[int] = [0, 0]
         self._size: tuple[int, int] = size
 
     @property

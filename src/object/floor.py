@@ -9,11 +9,13 @@ class Floor(Entity):
         self.game = game
 
         image = game.asset.image.floor.copy()
-
-        pos = [0, game.window.display_size[1] - image.get_height()]
         hitbox = HitBox(pos, (462 * 2, 168))
 
         super().__init__(pos=pos, image=image, hitbox=hitbox)
+        return
+
+    def setup(self):
+        self.pos = [0, self.game.window.display_size[1] - self.image.get_height()]
         return
 
     def update(self, dt: int):

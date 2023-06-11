@@ -6,7 +6,6 @@ class Bird(PhysicsEntity):
     def __init__(self, game):
         self.game = game
 
-        pos = [0, 0]
         animation = game.asset.image.bird_fly_ani.copy()
 
         rotate_pos = (25, 18)
@@ -15,9 +14,8 @@ class Bird(PhysicsEntity):
         self.stop = True
 
         super().__init__(
-            pos=pos,
             animation=animation,
-            hitbox=HitBox(pos, (51, 36)),
+            hitbox=HitBox((51, 36)),
             rotate_pos=rotate_pos,
         )
         return

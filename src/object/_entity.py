@@ -8,14 +8,17 @@ from src.util.image import rotate
 
 class Entity(Object):
     def __init__(
-        self,
-        pos: list[int, int],
-        image: pygame.Surface = None,
-        animation: Animation = None,
-        hitbox: HitBox = None,
-        rotate_pos: tuple[int, int] = (0, 0),
+            self,
+            pos=None,
+            image: pygame.Surface = None,
+            animation: Animation = None,
+            hitbox: HitBox = None,
+            rotate_pos: tuple[int, int] = (0, 0),
     ):
+        if pos is None:
+            pos = [0, 0]
         super().__init__(pos, image, animation)
+
         self.hitbox = hitbox
         self.angle = 0
         self.rotate_pos = rotate_pos
@@ -44,13 +47,15 @@ class Entity(Object):
 
 class PhysicsEntity(Entity):
     def __init__(
-        self,
-        pos: list[int, int],
-        image: pygame.Surface = None,
-        animation: Animation = None,
-        hitbox: HitBox = None,
-        rotate_pos: tuple[int, int] = None,
+            self,
+            pos=None,
+            image: pygame.Surface = None,
+            animation: Animation = None,
+            hitbox: HitBox = None,
+            rotate_pos: tuple[int, int] = None,
     ):
+        if pos is None:
+            pos = [0, 0]
         super().__init__(pos, image, animation, hitbox, rotate_pos)
 
         self.y_acc = 0

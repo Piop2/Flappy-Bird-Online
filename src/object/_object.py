@@ -5,11 +5,14 @@ from src.util.animation import Animation
 
 class Object:
     def __init__(
-        self,
-        pos: list[int, int],
-        image: pygame.Surface = None,
-        animation: Animation = None,
+            self,
+            pos=None,
+            image: pygame.Surface = None,
+            animation: Animation = None,
     ):
+        if pos is None:
+            pos = [0, 0]
+
         self.pos: list[int, int] = pos
         self.image: pygame.Surface = image
         self.animation: Animation = animation
@@ -19,6 +22,9 @@ class Object:
         if self.animation is not None:
             return self.animation.image.copy()
         return self.image.copy()
+
+    def setup(self):
+        return
 
     def update(self, dt: int):
         if self.animation is not None:
