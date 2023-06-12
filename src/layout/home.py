@@ -15,6 +15,7 @@ class Home(Layout):
         self.start_button = world.start_button
         self.score_button = world.score_button
         self.multi_button = world.multi_button
+        return
 
     def init_object(self):
         self.floor.setup()

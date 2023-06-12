@@ -28,6 +28,7 @@ class Button(Interface):
             self.pos[0] - (self.size[0] / 2),
             self.pos[1] - (self.size[1] / 2)
         )
+        self._is_active = False
         if not (pos[0] <= event.mouse_pos[0] <= pos[0] + self.size[0] and pos[1] <= event.mouse_pos[1] <= pos[1] + self.size[1]):
             self._down = False
             return

@@ -1,4 +1,5 @@
 import os
+import sys
 import subprocess
 import zipfile
 import shutil
@@ -49,6 +50,7 @@ class Downloader:
         )
 
         latest_version = latest_tag.text
+        print(f"latest version: {latest_version}")
 
         if latest_version == "v0.0.0":
             self.status = "RUNNING...000"
@@ -134,17 +136,14 @@ class App:
             if self.downloader.done or self.downloader.error:
                 timer += dt
                 if timer >= 6000:
-                    running = False
-
                     if self.downloader.done:
-                        subprocess.run("main.py")
+                        subprocess.Popen("main.exe")
+                    sys.exit()
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    running = False
+                    sys.exit()
             pygame.display.update()
-
-        pygame.quit()
         return
 
 
