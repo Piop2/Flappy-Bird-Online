@@ -104,6 +104,7 @@ class App:
         pygame.init()
         self.screen = pygame.display.set_mode((400, 400), pygame.NOFRAME)
         pygame.display.set_icon(pygame.image.load("asset/icon/flappy29.png"))
+        pygame.display.set_caption("Flappy Bird Updater")
         self.clock = pygame.time.Clock()
 
         self.bird = Animation.load("asset/animation/update_bird.json")
